@@ -6,6 +6,7 @@ describe books;
 	1. Usar mayusculas en los comandos.
     2. Usar sustantivos para filas y clomunas.
     3. Usar nombre en ingles.
+    4. INNODB vs MYSAMM
 */
 
 CREATE TABLE books(
@@ -97,6 +98,7 @@ INSERT INTO actions(book_id, user_id, action_type) VALUES
 select * from publishers;
 select * from books;
 select * from actions;
+select * from users;
 
 #deletes
 delete from publishers where publisher_id=10;
@@ -104,6 +106,7 @@ delete from publishers where publisher_id=10;
 #alter tables
 alter table books add description VARCHAR(200);
 alter table books add copies INT NOT NULL;
+ALTER TABLE users ADD active tinyint(1) NOT NULL DEFAULT 1;
 
 #descriptions
 desc actions;
@@ -144,6 +147,7 @@ SELECT
 FROM books AS b
 LEFT JOIN publishers AS p
 ON b.publisher_id=p.publisher_id
+WHERE b.publisher_id=3
 GROUP BY pid;
 
 #funcion SUM + IF
@@ -156,3 +160,11 @@ FROM books AS b
 LEFT JOIN publishers AS p
 ON b.publisher_id=p.publisher_id
 GROUP BY pid;
+
+#update
+UPDATE users SET active = 0 WHERE user_id=9;
+
+#insert con ERROR
+INSERT INTO users (nombre, email) VALUES ('perla','ricardo@hola.com')
+ON DUPLICATE KEY update active =2;
+
