@@ -19,19 +19,18 @@ create table cliente(
 	email varchar(50) not null default 'Sin email'
 );
 
+create table proveedores (
+rfc varchar(20) not null primary key,
+nombre varchar(50) not null default 'Sin nombre',
+direccion varchar(100) not null default 'Sin direccion',
+email varchar(50) not null default 'Sin E-mail'
+);
 create table productos(
 	id_producto int primary key auto_increment,
 	nombre varchar(50) not null default 'Sin nombre',
 	precio float not null default 0.0,
 	id_proveedor varchar(20),
 	foreign key (id_proveedor) references proveedores(rfc)
-);
-
-create table proveedores (
-rfc varchar(20) not null primary key,
-nombre varchar(50) not null default 'Sin nombre',
-direccion varchar(100) not null default 'Sin direccion',
-email varchar(50) not null default 'Sin E-mail'
 );
 #Telefono
 create table proveedor_telefono(
