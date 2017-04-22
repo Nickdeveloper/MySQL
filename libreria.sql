@@ -10,15 +10,17 @@ describe books;
 */
 
 CREATE TABLE books(
-	book_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    book_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     #UNSIGNED no guarda el signo del identificador
     publisher_id INTEGER UNSIGNED NOT NULL,
     #Si uso una llave foranea poner el mismo tipo de dato en ambas tablas
     titulo VARCHAR(60) NOT NULL,
     #No permite un dato nulo
     autor VARCHAR(100) NOT NULL,
-    price DECIMAL(5,2)
+    description TEXT,
+    price DECIMAL(5,2),
     #DECIMAL(despues del punto, antes del punto)
+    copies INT NOT NULL DEFAULT 0
 );
 
 CREATE TABLE publishers(
