@@ -4,7 +4,7 @@ describe books;
 #Notación:
 /*
 	1. Usar mayusculas en los comandos.
-    2. Usar sustantivos para filas y clomunas.
+    2. Usar sustantivos para filas y columnas.
     3. Usar nombre en ingles.
     4. INNODB vs MYSAMM
 */
